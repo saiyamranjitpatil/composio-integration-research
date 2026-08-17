@@ -95,3 +95,5 @@ NORMALIZE
 VERIFY HIGH-RISK CLAIMS
      ↓
 ANALYZE PATTERNS
+
+AI-powered, evidence-first integration research across 100 apps — APIs, auth, MCP, access models, buildability, and human verification
