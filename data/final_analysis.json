@@ -1,0 +1,362 @@
+{
+  "metadata": {
+    "apps": 100,
+    "verified_apps": 10,
+    "unverified_apps": 90,
+    "apps_with_corrections": 9,
+    "field_corrections_applied": 18,
+    "source": "data/final_results.json"
+  },
+  "overall": {
+    "authentication": {
+      "OAuth": 74,
+      "API Key": 37,
+      "Token": 13,
+      "Basic Auth": 5,
+      "Username / Password": 4,
+      "Payment-based": 1,
+      "JWT": 1,
+      "Signature": 1,
+      "Principal + Token model": 1,
+      "GitHub App": 1,
+      "Private key authentication": 1,
+      "IAM": 1,
+      "Bearer authentication": 1,
+      "App Review": 1,
+      "Advanced Access": 1
+    },
+    "access_model": {
+      "Unknown": 77,
+      "Self-serve": 13,
+      "Gated": 10
+    },
+    "mcp": {
+      "Unknown": 65,
+      "Official": 26,
+      "Community": 9
+    },
+    "buildability": {
+      "Needs verification": 47,
+      "Buildable today": 44,
+      "Partially buildable": 9
+    }
+  },
+  "category_analysis": {
+    "ai, research & media-native": {
+      "app_count": 10,
+      "authentication": {
+        "OAuth": 6,
+        "API Key": 4,
+        "Principal + Token model": 1,
+        "IAM": 1,
+        "Token": 1
+      },
+      "access_model": {
+        "Unknown": 7,
+        "Self-serve": 3
+      },
+      "mcp": {
+        "Official": 5,
+        "Community": 3,
+        "Unknown": 2
+      },
+      "buildability": {
+        "Buildable today": 5,
+        "Partially buildable": 3,
+        "Needs verification": 2
+      }
+    },
+    "communications & messaging": {
+      "app_count": 10,
+      "authentication": {
+        "OAuth": 9,
+        "Basic Auth": 2,
+        "API Key": 1,
+        "App Review": 1,
+        "Advanced Access": 1
+      },
+      "access_model": {
+        "Unknown": 7,
+        "Gated": 2,
+        "Self-serve": 1
+      },
+      "mcp": {
+        "Unknown": 8,
+        "Official": 2
+      },
+      "buildability": {
+        "Needs verification": 4,
+        "Partially buildable": 3,
+        "Buildable today": 3
+      }
+    },
+    "crm": {
+      "app_count": 1,
+      "authentication": {
+        "OAuth": 1
+      },
+      "access_model": {
+        "Unknown": 1
+      },
+      "mcp": {
+        "Official": 1
+      },
+      "buildability": {
+        "Needs verification": 1
+      }
+    },
+    "crm & sales": {
+      "app_count": 9,
+      "authentication": {
+        "OAuth": 8,
+        "API Key": 3,
+        "Token": 2
+      },
+      "access_model": {
+        "Unknown": 7,
+        "Self-serve": 2
+      },
+      "mcp": {
+        "Unknown": 9
+      },
+      "buildability": {
+        "Needs verification": 6,
+        "Buildable today": 3
+      }
+    },
+    "data, seo & scraping": {
+      "app_count": 9,
+      "authentication": {
+        "API Key": 6,
+        "OAuth": 4,
+        "Payment-based": 1,
+        "Basic Auth": 1
+      },
+      "access_model": {
+        "Unknown": 6,
+        "Gated": 2,
+        "Self-serve": 1
+      },
+      "mcp": {
+        "Unknown": 5,
+        "Official": 3,
+        "Community": 1
+      },
+      "buildability": {
+        "Needs verification": 5,
+        "Buildable today": 3,
+        "Partially buildable": 1
+      }
+    },
+    "data,seo&scraping": {
+      "app_count": 1,
+      "authentication": {
+        "API Key": 1,
+        "Username / Password": 1
+      },
+      "access_model": {
+        "Unknown": 1
+      },
+      "mcp": {
+        "Community": 1
+      },
+      "buildability": {
+        "Buildable today": 1
+      }
+    },
+    "developer, infra & data platforms": {
+      "app_count": 10,
+      "authentication": {
+        "OAuth": 7,
+        "API Key": 5,
+        "Token": 3,
+        "GitHub App": 1,
+        "Basic Auth": 1
+      },
+      "access_model": {
+        "Unknown": 10
+      },
+      "mcp": {
+        "Unknown": 6,
+        "Official": 3,
+        "Community": 1
+      },
+      "buildability": {
+        "Buildable today": 8,
+        "Needs verification": 2
+      }
+    },
+    "ecommerce": {
+      "app_count": 10,
+      "authentication": {
+        "OAuth": 10,
+        "API Key": 3,
+        "Username / Password": 1,
+        "Token": 1
+      },
+      "access_model": {
+        "Unknown": 8,
+        "Self-serve": 2
+      },
+      "mcp": {
+        "Unknown": 8,
+        "Community": 2
+      },
+      "buildability": {
+        "Buildable today": 5,
+        "Needs verification": 5
+      }
+    },
+    "finance & fintech": {
+      "app_count": 10,
+      "authentication": {
+        "OAuth": 8,
+        "API Key": 4
+      },
+      "access_model": {
+        "Unknown": 8,
+        "Gated": 2
+      },
+      "mcp": {
+        "Unknown": 7,
+        "Official": 3
+      },
+      "buildability": {
+        "Needs verification": 6,
+        "Buildable today": 4
+      }
+    },
+    "marketing, ads, email & social": {
+      "app_count": 10,
+      "authentication": {
+        "OAuth": 7,
+        "API Key": 2,
+        "Token": 1,
+        "Private key authentication": 1
+      },
+      "access_model": {
+        "Unknown": 6,
+        "Gated": 2,
+        "Self-serve": 2
+      },
+      "mcp": {
+        "Unknown": 6,
+        "Official": 4
+      },
+      "buildability": {
+        "Needs verification": 5,
+        "Buildable today": 5
+      }
+    },
+    "productivity & project management": {
+      "app_count": 10,
+      "authentication": {
+        "OAuth": 7,
+        "Token": 3,
+        "API Key": 3,
+        "JWT": 1,
+        "Signature": 1
+      },
+      "access_model": {
+        "Unknown": 8,
+        "Gated": 2
+      },
+      "mcp": {
+        "Unknown": 5,
+        "Official": 5
+      },
+      "buildability": {
+        "Buildable today": 5,
+        "Needs verification": 3,
+        "Partially buildable": 2
+      }
+    },
+    "support & helpdesk": {
+      "app_count": 10,
+      "authentication": {
+        "OAuth": 7,
+        "API Key": 5,
+        "Username / Password": 2,
+        "Token": 2,
+        "Basic Auth": 1,
+        "Bearer authentication": 1
+      },
+      "access_model": {
+        "Unknown": 8,
+        "Self-serve": 2
+      },
+      "mcp": {
+        "Unknown": 9,
+        "Community": 1
+      },
+      "buildability": {
+        "Needs verification": 8,
+        "Buildable today": 2
+      }
+    }
+  },
+  "verification": {
+    "verified_apps": 10,
+    "field_accuracy_percent": 64.0,
+    "overall_pass_rate_percent": 10.0,
+    "apps_with_corrections": 9,
+    "field_corrections_applied": 18,
+    "field_checks": 50,
+    "correct_field_checks": 32,
+    "field_corrections": {}
+  },
+  "headline_findings": [
+    {
+      "headline": "OAuth is the dominant authentication pattern.",
+      "support": {
+        "oauth_app_mentions": 74,
+        "dataset_size": 100
+      },
+      "product_implication": "OAuth should be treated as a first-class authentication primitive in the integration system."
+    },
+    {
+      "headline": "API keys are the second major integration pattern.",
+      "support": {
+        "api_key_app_mentions": 37,
+        "dataset_size": 100
+      },
+      "product_implication": "Credential handling should support secure static-key authentication alongside OAuth."
+    },
+    {
+      "headline": "MCP adoption is growing but remains uneven.",
+      "support": {
+        "official": 26,
+        "community": 9,
+        "unknown": 65
+      },
+      "product_implication": "MCP should complement, not replace, conventional API-based integrations."
+    },
+    {
+      "headline": "Buildability is fragmented across the portfolio.",
+      "support": {
+        "buildable_today": 44,
+        "partially_buildable": 9,
+        "needs_verification": 47
+      },
+      "product_implication": "Integration planning needs an explicit verification step before promising full buildability."
+    },
+    {
+      "headline": "Access-model uncertainty is a major research bottleneck.",
+      "support": {
+        "unknown_access": 77,
+        "dataset_size": 100
+      },
+      "product_implication": "The research workflow should explicitly distinguish API availability from credential access, permissions, plan restrictions, and partner gating."
+    },
+    {
+      "headline": "Human verification materially changed the sample.",
+      "support": {
+        "verified_apps": 10,
+        "field_accuracy_percent": 64.0,
+        "apps_with_corrections": 9,
+        "field_corrections_applied": 18
+      },
+      "product_implication": "A verification loop is necessary before treating LLM-generated research as production-grade truth."
+    }
+  ]
+}

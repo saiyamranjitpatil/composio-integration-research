@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>AI Product Ops — Integration Research</title>
+
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --surface-2: #f0f2f5;
+      --text: #17191d;
+      --muted: #656b75;
+      --border: #dfe3e8;
+      --accent: #17191d;
+      --good: #176b45;
+      --warn: #9a5b00;
+      --bad: #a52d2d;
+      --radius: 14px;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(
+        calc(100% - 40px),
+        var(--max)
+      );
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 76px 0 56px;
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f6f7f9 100%
+        );
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 18px 0 18px;
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 12px 0;
+    }
+
+    nav a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: -0.015em;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 0 30px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-4 {
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .metric {
+      min-height: 150px;
+    }
+
+    .metric-number {
+      margin-bottom: 8px;
+      font-size: 38px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .metric-note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .finding {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .finding-number {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .finding p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .finding strong {
+      display: block;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 45px;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 9px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--surface-2);
+    }
+
+    .bar {
+      height: 100%;
+      border-radius: inherit;
+      background: var(--accent);
+    }
+
+    .bar-value {
+      text-align: right;
+      font-weight: 750;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 30px;
+    }
+
+    .workflow-step {
+      position: relative;
+      padding: 18px 14px;
+      min-height: 150px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .workflow-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      z-index: 2;
+      font-size: 18px;
+    }
+
+    .step-number {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .workflow-step h3 {
+      font-size: 14px;
+    }
+
+    .workflow-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .verification-callout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .big-callout {
+      padding: 30px;
+      background: var(--text);
+      color: white;
+      border-radius: var(--radius);
+    }
+
+    .big-callout .number {
+      font-size: 58px;
+      font-weight: 850;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .big-callout p {
+      margin: 12px 0 0;
+      color: #c7cbd1;
+    }
+
+    .verification-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .verification-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 13px 15px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .pass {
+      color: var(--good);
+      font-weight: 800;
+    }
+
+    .fail {
+      color: var(--bad);
+      font-weight: 800;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 13px 15px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      font-size: 13px;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .architecture {
+      display: grid;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .architecture-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .architecture-label {
+      font-weight: 800;
+    }
+
+    .architecture-content {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: var(--surface-2);
+      font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+      font-size: 0.9em;
+    }
+
+    pre {
+      overflow-x: auto;
+      margin: 0;
+      padding: 20px;
+      background: #17191d;
+      color: #e7e9ed;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .command-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .command {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 14px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .command span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 50px 0 70px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .grid-4 {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .workflow {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .workflow-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .verification-callout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(
+          calc(100% - 28px),
+          var(--max)
+        );
+      }
+
+      .hero {
+        padding: 52px 0 42px;
+      }
+
+      section {
+        padding: 46px 0;
+      }
+
+      .grid-4,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row {
+        grid-template-columns: 110px 1fr 35px;
+      }
+
+      .architecture-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======================================================
+       HERO
+  ======================================================= -->
+
+  <header class="hero">
+    <div class="container">
+
+      <div class="eyebrow">
+        AI Product Ops · Integration Research
+      </div>
+
+      <h1>
+        What does it actually take to build integrations
+        across 100 modern apps?
+      </h1>
+
+      <p>
+        An evidence-first research agent analyzed 100 apps across
+        10 product categories, collected 527 sources, synthesized
+        integration characteristics, and then subjected a 10-app
+        sample to human documentation verification.
+      </p>
+
+      <div class="hero-meta">
+        <div class="pill">100 apps</div>
+        <div class="pill">10 categories</div>
+        <div class="pill">527 evidence sources</div>
+        <div class="pill">10-app verification sample</div>
+        <div class="pill">64% first-pass field accuracy</div>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ======================================================
+       NAV
+  ======================================================= -->
+
+  <nav>
+    <div class="container">
+      <a href="#findings">Findings</a>
+      <a href="#patterns">Patterns</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#verification">Verification</a>
+      <a href="#sample">Sample</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#run">Run</a>
+    </div>
+  </nav>
+
+
+  <!-- ======================================================
+       EXECUTIVE SUMMARY
+  ======================================================= -->
+
+  <section id="findings">
+    <div class="container">
+
+      <div class="section-label">
+        01 · Executive summary
+      </div>
+
+      <h2>
+        The integration surface is standardized in some places
+        and surprisingly fragmented in others.
+      </h2>
+
+      <p class="section-intro">
+        Authentication has strong recurring patterns, but access
+        requirements, MCP support, and practical buildability are
+        much less uniform. The research therefore needs to separate
+        “an API exists” from “an integration can actually be built
+        today.”
+      </p>
+
+      <div class="grid grid-4">
+
+        <div class="card metric">
+          <div class="metric-number">74</div>
+          <div class="metric-label">
+            OAuth mentions
+          </div>
+          <div class="metric-note">
+            OAuth is the dominant normalized authentication pattern.
+          </div>
+        </div>
+
+        <div class="card metric">
+          <div class="metric-number">37</div>
+          <div class="metric-label">
+            API-key mentions
+          </div>
+          <div class="metric-note">
+            Static credentials remain a major integration primitive.
+          </div>
+        </div>
+
+        <div class="card metric">
+          <div class="metric-number">26</div>
+          <div class="metric-label">
+            Official MCP implementations
+          </div>
+          <div class="metric-note">
+            MCP is meaningful, but not yet universal.
+          </div>
+        </div>
+
+        <div class="card metric">
+          <div class="metric-number">44</div>
+          <div class="metric-label">
+            Buildable today
+          </div>
+          <div class="metric-note">
+            44 buildable + 9 partially buildable; 47 need verification.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid grid-3" style="margin-top:16px;">
+
+        <div class="card finding">
+          <div class="finding-number">01</div>
+          <h3>OAuth is the default integration language.</h3>
+          <p>
+            OAuth appears across the majority of the normalized
+            authentication observations.
+          </p>
+          <strong>
+            Product implication: make OAuth a first-class connector primitive.
+          </strong>
+        </div>
+
+        <div class="card finding">
+          <div class="finding-number">02</div>
+          <h3>Access is harder to classify than APIs.</h3>
+          <p>
+            77 apps remain classified as Unknown for access model,
+            despite having evidence of some API surface.
+          </p>
+          <strong>
+            Product implication: permissions, plan gates and partner access
+            need their own research dimension.
+          </strong>
+        </div>
+
+        <div class="card finding">
+          <div class="finding-number">03</div>
+          <h3>Verification changes the confidence story.</h3>
+          <p>
+            Only 32 of 50 sampled field-level judgments survived
+            documentation verification unchanged.
+          </p>
+          <strong>
+            Product implication: research output needs a verification loop.
+          </strong>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       PATTERNS
+  ======================================================= -->
+
+  <section id="patterns">
+    <div class="container">
+
+      <div class="section-label">
+        02 · Portfolio patterns
+      </div>
+
+      <h2>
+        Authentication is concentrated; integration readiness isn't.
+      </h2>
+
+      <p class="section-intro">
+        The normalized taxonomy makes the portfolio easier to reason
+        about. Authentication has a few dominant primitives, while
+        buildability and access remain substantially more uncertain.
+      </p>
+
+      <div class="grid grid-2">
+
+        <div class="card">
+          <h3>Authentication</h3>
+
+          <div class="bar-list">
+
+            <div class="bar-row">
+              <span>OAuth</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:100%;"
+                ></div>
+              </div>
+              <span class="bar-value">74</span>
+            </div>
+
+            <div class="bar-row">
+              <span>API Key</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:50%;"
+                ></div>
+              </div>
+              <span class="bar-value">37</span>
+            </div>
+
+            <div class="bar-row">
+              <span>Token</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:18%;"
+                ></div>
+              </div>
+              <span class="bar-value">13</span>
+            </div>
+
+            <div class="bar-row">
+              <span>Basic Auth</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:7%;"
+                ></div>
+              </div>
+              <span class="bar-value">5</span>
+            </div>
+
+            <div class="bar-row">
+              <span>Username / Password</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:5.5%;"
+                ></div>
+              </div>
+              <span class="bar-value">4</span>
+            </div>
+
+          </div>
+
+          <p class="metric-note">
+            Counts represent authentication-method observations.
+            A single app may expose multiple methods, so totals can
+            exceed 100.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>Access model</h3>
+
+          <div class="bar-list">
+
+            <div class="bar-row">
+              <span>Unknown</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:100%;"
+                ></div>
+              </div>
+              <span class="bar-value">77</span>
+            </div>
+
+            <div class="bar-row">
+              <span>Self-serve</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:17%;"
+                ></div>
+              </div>
+              <span class="bar-value">13</span>
+            </div>
+
+            <div class="bar-row">
+              <span>Gated</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:13%;"
+                ></div>
+              </div>
+              <span class="bar-value">10</span>
+            </div>
+
+          </div>
+
+          <p class="metric-note">
+            The large Unknown bucket is itself a finding: evidence
+            about API availability frequently does not establish
+            commercial or permission-level access.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <h3>MCP status</h3>
+
+          <div class="bar-list">
+
+            <div class="bar-row">
+              <span>Unknown</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:100%;"
+                ></div>
+              </div>
+              <span class="bar-value">65</span>
+            </div>
+
+            <div class="bar-row">
+              <span>Official</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:40%;"
+                ></div>
+              </div>
+              <span class="bar-value">26</span>
+            </div>
+
+            <div class="bar-row">
+              <span>Community</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:14%;"
+                ></div>
+              </div>
+              <span class="bar-value">9</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="card">
+          <h3>Buildability</h3>
+
+          <div class="bar-list">
+
+            <div class="bar-row">
+              <span>Needs verification</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:100%;"
+                ></div>
+              </div>
+              <span class="bar-value">47</span>
+            </div>
+
+            <div class="bar-row">
+              <span>Buildable today</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:94%;"
+                ></div>
+              </div>
+              <span class="bar-value">44</span>
+            </div>
+
+            <div class="bar-row">
+              <span>Partial</span>
+              <div class="bar-track">
+                <div
+                  class="bar"
+                  style="width:19%;"
+                ></div>
+              </div>
+              <span class="bar-value">9</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       WORKFLOW
+  ======================================================= -->
+
+  <section id="workflow">
+    <div class="container">
+
+      <div class="section-label">
+        03 · Agent workflow
+      </div>
+
+      <h2>
+        Evidence first, synthesis second, verification last.
+      </h2>
+
+      <p class="section-intro">
+        The system deliberately separates retrieval from reasoning.
+        The language model receives collected evidence rather than
+        being asked to invent facts from its prior knowledge.
+      </p>
+
+      <div class="workflow">
+
+        <div class="workflow-step">
+          <div class="step-number">01</div>
+          <h3>App inventory</h3>
+          <p>
+            Load the fixed 100-app assignment dataset.
+          </p>
+        </div>
+
+        <div class="workflow-step">
+          <div class="step-number">02</div>
+          <h3>Evidence search</h3>
+          <p>
+            Search targeted API, authentication, pricing and MCP queries.
+          </p>
+        </div>
+
+        <div class="workflow-step">
+          <div class="step-number">03</div>
+          <h3>Evidence store</h3>
+          <p>
+            Preserve source titles, URLs and extracted evidence text.
+          </p>
+        </div>
+
+        <div class="workflow-step">
+          <div class="step-number">04</div>
+          <h3>Qwen synthesis</h3>
+          <p>
+            Convert evidence into a constrained structured record.
+          </p>
+        </div>
+
+        <div class="workflow-step">
+          <div class="step-number">05</div>
+          <h3>Normalization</h3>
+          <p>
+            Collapse equivalent authentication labels into a usable taxonomy.
+          </p>
+        </div>
+
+        <div class="workflow-step">
+          <div class="step-number">06</div>
+          <h3>Human verification</h3>
+          <p>
+            Check a risk-prioritized sample against documentation.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="architecture">
+
+        <div class="architecture-row">
+          <div class="architecture-label">
+            Evidence layer
+          </div>
+          <div class="architecture-content">
+            <code>raw_evidence.json</code>
+            stores the evidence gathered for all 100 apps.
+            The final run produced 527 source records.
+          </div>
+        </div>
+
+        <div class="architecture-row">
+          <div class="architecture-label">
+            Research layer
+          </div>
+          <div class="architecture-content">
+            <code>results.json</code> contains the structured
+            LLM synthesis for the application inventory.
+          </div>
+        </div>
+
+        <div class="architecture-row">
+          <div class="architecture-label">
+            Quality layer
+          </div>
+          <div class="architecture-content">
+            <code>normalize.py</code>, <code>verify.py</code>,
+            and <code>finalize.py</code> separate normalization,
+            verification, and final reconciliation from the research engine.
+          </div>
+        </div>
+
+        <div class="architecture-row">
+          <div class="architecture-label">
+            Analysis layer
+          </div>
+          <div class="architecture-content">
+            <code>final_analysis.py</code> calculates portfolio-level
+            patterns from the corrected final dataset.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       VERIFICATION
+  ======================================================= -->
+
+  <section id="verification">
+    <div class="container">
+
+      <div class="section-label">
+        04 · Verification
+      </div>
+
+      <h2>
+        The verification sample is the proof that the pipeline needs a quality loop.
+      </h2>
+
+      <p class="section-intro">
+        Ten high-risk records were checked against documentation.
+        The sample produced 50 field-level judgments. 32 were correct
+        on the first pass, while 18 required correction.
+      </p>
+
+      <div class="verification-callout">
+
+        <div class="big-callout">
+          <div class="number">64%</div>
+          <p>
+            First-pass field-level accuracy across the 10-app
+            verification sample.
+          </p>
+        </div>
+
+        <div class="verification-list">
+
+          <div class="verification-row">
+            <span>Apps verified</span>
+            <strong>10</strong>
+          </div>
+
+          <div class="verification-row">
+            <span>Field checks</span>
+            <strong>50</strong>
+          </div>
+
+          <div class="verification-row">
+            <span>Correct first-pass fields</span>
+            <strong>32</strong>
+          </div>
+
+          <div class="verification-row">
+            <span>Field corrections</span>
+            <strong>18</strong>
+          </div>
+
+          <div class="verification-row">
+            <span>Apps requiring correction</span>
+            <strong>9 / 10</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="grid grid-3" style="margin-top:20px;">
+
+        <div class="card">
+          <h3>What went wrong?</h3>
+          <p class="section-intro">
+            The recurring failure modes were over-conservative
+            access classification, incomplete authentication extraction,
+            and missed official MCP implementations.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>What changed?</h3>
+          <p class="section-intro">
+            Verified corrections were applied downstream to produce
+            <code>final_results.json</code> without overwriting the
+            original research output.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Why keep the errors?</h3>
+          <p class="section-intro">
+            The original output remains auditable. The system does not
+            silently rewrite history; it preserves the research,
+            verification, and corrected layers separately.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       VERIFIED SAMPLE
+  ======================================================= -->
+
+  <section id="sample">
+    <div class="container">
+
+      <div class="section-label">
+        05 · Verification sample
+      </div>
+
+      <h2>
+        Ten records were selected for risk-based verification.
+      </h2>
+
+      <p class="section-intro">
+        The sample was deliberately not presented as a random claim
+        of universal correctness. It targeted uncertainty signals such
+        as unknown access, unknown MCP status, buildability uncertainty,
+        multiple authentication methods, and limited evidence.
+      </p>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>App</th>
+              <th>Primary issue found</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td><strong>Pylon</strong></td>
+              <td>
+                Evidence supported the existing Bearer-authentication
+                classification.
+              </td>
+              <td>
+                <span class="tag">PASS</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Slack</strong></td>
+              <td>
+                Access/buildability were too conservative; OAuth-based
+                app installation supports a stronger classification.
+              </td>
+              <td>
+                <span class="tag">CORRECTED</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Aircall</strong></td>
+              <td>
+                OAuth access involves partner/gating considerations.
+              </td>
+              <td>
+                <span class="tag">CORRECTED</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Freshdesk</strong></td>
+              <td>
+                Authentication evidence did not support the original
+                OAuth claim; API key/basic authentication was supported.
+              </td>
+              <td>
+                <span class="tag">CORRECTED</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Grain</strong></td>
+              <td>
+                Authentication coverage was incomplete and official MCP
+                support was missed.
+              </td>
+              <td>
+                <span class="tag">CORRECTED</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Paygent Connect</strong></td>
+              <td>
+                OAuth was not established by the supplied evidence.
+              </td>
+              <td>
+                <span class="tag">CORRECTED</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Twenty</strong></td>
+              <td>
+                API-key/OAuth coverage and self-serve access were
+                under-classified.
+              </td>
+              <td>
+                <span class="tag">CORRECTED</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>fanbasis</strong></td>
+              <td>
+                Authentication and API-surface claims exceeded the
+                strength of the supplied evidence.
+              </td>
+              <td>
+                <span class="tag">CORRECTED</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Notion</strong></td>
+              <td>
+                Official Notion MCP support was missed.
+              </td>
+              <td>
+                <span class="tag">CORRECTED</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Mailchimp</strong></td>
+              <td>
+                Self-serve API-key access and practical buildability
+                were under-classified.
+              </td>
+              <td>
+                <span class="tag">CORRECTED</span>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       ARCHITECTURE
+  ======================================================= -->
+
+  <section id="architecture">
+    <div class="container">
+
+      <div class="section-label">
+        06 · Technical architecture
+      </div>
+
+      <h2>
+        The important design choice was separating retrieval from synthesis.
+      </h2>
+
+      <p class="section-intro">
+        Search results become an explicit evidence artifact before
+        the local model is asked to reason over them. This makes the
+        system inspectable and allows the verification stage to target
+        concrete claims.
+      </p>
+
+      <pre>
+app.json
+   │
+   ▼
+bulk_research.py
+   │
+   ├── targeted web searches
+   │
+   ▼
+raw_evidence.json
+   │
+   ▼
+synthesize.py
+   │
+   ├── Qwen3 8B
+   │
+   ▼
+results.json
+   │
+   ▼
+normalize.py
+   │
+   ▼
+normalized_results.json
+   │
+   ▼
+verify.py
+   │
+   ▼
+verification_queue.json
+   │
+   ▼
+verification_results.json
+   │
+   ▼
+finalize.py
+   │
+   ▼
+final_results.json
+   │
+   ▼
+final_analysis.py
+   │
+   ▼
+final_analysis.json
+      </pre>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       REPRODUCIBILITY
+  ======================================================= -->
+
+  <section id="run">
+    <div class="container">
+
+      <div class="section-label">
+        07 · Reproducibility
+      </div>
+
+      <h2>
+        The research can be inspected and rerun from the repository.
+      </h2>
+
+      <p class="section-intro">
+        The pipeline is intentionally decomposed into explicit stages.
+        The commands below describe the major execution path.
+      </p>
+
+      <div class="command-list">
+
+        <div class="command">
+          <code>python Agent/bulk_research.py</code>
+          <span>Collect evidence for 100 apps</span>
+        </div>
+
+        <div class="command">
+          <code>python Agent/synthesize.py --limit 5</code>
+          <span>Synthesize evidence with Qwen</span>
+        </div>
+
+        <div class="command">
+          <code>python Agent/normalize.py</code>
+          <span>Normalize authentication taxonomy</span>
+        </div>
+
+        <div class="command">
+          <code>python Agent/verify.py</code>
+          <span>Generate verification queue</span>
+        </div>
+
+        <div class="command">
+          <code>python Agent/apply_verification.py</code>
+          <span>Record verified sample corrections</span>
+        </div>
+
+        <div class="command">
+          <code>python Agent/finalize.py</code>
+          <span>Create corrected final dataset</span>
+        </div>
+
+        <div class="command">
+          <code>python Agent/final_analysis.py</code>
+          <span>Generate portfolio-level findings</span>
+        </div>
+
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <h3>Important limitation</h3>
+        <p class="section-intro" style="margin-bottom:0;">
+          The 64% figure is a first-pass field-level accuracy result
+          for the 10-app verification sample. It should not be presented
+          as an estimated accuracy rate for all 100 apps. The remaining
+          90 records retain their evidence and confidence metadata but
+          were not manually verified in this exercise.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       FOOTER
+  ======================================================= -->
+
+  <footer>
+    <div class="container">
+
+      <div class="footer-line">
+        <span>
+          AI Product Ops — Integration Research
+        </span>
+
+        <span>
+          100 apps · 527 sources · 10 verified
+        </span>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

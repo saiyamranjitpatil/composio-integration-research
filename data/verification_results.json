@@ -1,0 +1,668 @@
+{
+  "metadata": {
+    "sample_size": 10,
+    "field_checks": 50,
+    "correct_field_checks": 32,
+    "field_accuracy_percent": 64.0,
+    "overall_passes": 1,
+    "overall_fails": 9,
+    "status": "VERIFIED_SAMPLE"
+  },
+  "records": [
+    {
+      "verification_id": "V01",
+      "app": "pylon",
+      "category": "support & helpdesk",
+      "priority": "HIGH",
+      "risk_score": 19,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "limited_evidence_2_sources",
+        "unusual_auth_Bearer authentication",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Pylon provides an API for programmatic access to data and automation, with support for MCP for AI tool integration.",
+        "auth_methods": [
+          "Bearer authentication"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "Evidence did not explicitly establish whether developer access is self-serve or gated.",
+        "api_surface": "Available for developers, but requires Admin access to create tokens.",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "API access is restricted to Admin users, which may require enterprise or paid-plan access.",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "API | Pylon",
+          "url": "https://docs.usepylon.com/pylon-docs/developer/api",
+          "evidence_text": "Pylon’s API can be used to programmatically access and take action on data within Pylon. Only Admin users can create API tokens. To learn more about Admins, see Roles & User Management. Some common use cases for our API include:"
+        },
+        {
+          "title": "Pylon Developer Hub",
+          "url": "https://getpylon.com/developers/",
+          "evidence_text": "Access the data in your Pylon team and automate business processes with our JSON-based web API. Instantly connect to 1000s of applications you already use with our Zapier App. Create projects from external systems without spending credits, and only pay when your team confirms the location."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": true,
+        "access_correct": true,
+        "api_surface_correct": true,
+        "mcp_correct": true,
+        "buildability_correct": true,
+        "overall_result": "PASS",
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [
+          "https://docs.usepylon.com/pylon-docs/developer/api",
+          "https://getpylon.com/developers/"
+        ],
+        "notes": "Bearer authentication and admin token creation are supported by Pylon documentation."
+      }
+    },
+    {
+      "verification_id": "V02",
+      "app": "Slack",
+      "category": "Communications & Messaging",
+      "priority": "HIGH",
+      "risk_score": 19,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "low_confidence",
+        "limited_evidence_2_sources",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Slack is a messaging platform for team communication and collaboration.",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access is self-serve or gated.",
+        "api_surface": "Slack API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Insufficient evidence to determine access model or MCP status.",
+        "confidence": "Low"
+      },
+      "evidence": [
+        {
+          "title": "Authentication overview | Slack Developer Docs",
+          "url": "https://docs.slack.dev/authentication/",
+          "evidence_text": "Before your app can access Slack data or interact with Slack workspaces, it must go through an authentication process. This involves obtaining the necessary tokens and permissions for your app to function properly."
+        },
+        {
+          "title": "Slack developer docs",
+          "url": "https://docs.slack.dev/",
+          "evidence_text": "Welcome to the Slack API docs, the place where ideas turn into interactive apps, workflows get automated, and Slack becomes the platform that powers your workday."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": true,
+        "access_correct": false,
+        "api_surface_correct": true,
+        "mcp_correct": true,
+        "buildability_correct": false,
+        "overall_result": "FAIL",
+        "corrected_fields": [],
+        "corrected_values": {
+          "access_model": "Self-serve",
+          "buildability": "Buildable today"
+        },
+        "verified_source_urls": [
+          "https://docs.slack.dev/authentication/",
+          "https://docs.slack.dev/"
+        ],
+        "notes": "Slack provides OAuth-based app installation and a mature public API surface."
+      }
+    },
+    {
+      "verification_id": "V03",
+      "app": "Aircall",
+      "category": "Communications & Messaging",
+      "priority": "HIGH",
+      "risk_score": 18,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "moderate_evidence",
+        "multiple_auth_methods",
+        "unusual_auth_Basic Auth",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Aircall provides cloud-based phone systems for businesses, enabling teams to manage calls, contacts, and customer interactions through a unified platform.",
+        "auth_methods": [
+          "OAuth",
+          "Basic Auth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access to the API requires enterprise restrictions, paid plans, or other access barriers.",
+        "api_surface": "REST API, Webhooks",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "API References | Aircall",
+          "url": "https://developers.aircall.io/api-references",
+          "evidence_text": "With Aircall Public API, Authentication can be done through OAuth or Basic Auth. ... authentication methods, unless indicated otherwise in the documentation."
+        },
+        {
+          "title": "Aircall for Developers",
+          "url": "https://developer.aircall.io/",
+          "evidence_text": "Use our REST API and webhooks to access calls, contacts, and users — and keep every system in sync with what's happening on every call, human or AI. See what ..."
+        },
+        {
+          "title": "Developers | Aircall",
+          "url": "https://developer.aircall.io/docs/api",
+          "evidence_text": "Seamlessly integrate with Aircall using our powerful APIs, and deliver the best phone experience to your team and your customers."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": true,
+        "access_correct": false,
+        "api_surface_correct": true,
+        "mcp_correct": true,
+        "buildability_correct": false,
+        "overall_result": "FAIL",
+        "corrected_fields": [],
+        "corrected_values": {
+          "access_model": "Gated",
+          "buildability": "Partially buildable"
+        },
+        "verified_source_urls": [
+          "https://developers.aircall.io/api-references",
+          "https://developer.aircall.io/",
+          "https://developer.aircall.io/docs/api"
+        ],
+        "notes": "OAuth integration access involves Aircall's technology-partner pathway."
+      }
+    },
+    {
+      "verification_id": "V04",
+      "app": "Freshdesk",
+      "category": "Support & Helpdesk",
+      "priority": "HIGH",
+      "risk_score": 18,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "moderate_evidence",
+        "multiple_auth_methods",
+        "unusual_auth_Username / Password",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Freshdesk is a customer support and helpdesk platform that allows businesses to manage customer interactions, tickets, and support workflows.",
+        "auth_methods": [
+          "OAuth",
+          "Username / Password",
+          "API Key"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not explicitly confirm whether access is self-serve or gated. While the API is available, there is no clear indication of whether it is open to all developers or restricted to certain users or plans.",
+        "api_surface": "REST API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Freshdesk Developers",
+          "url": "https://developers.freshdesk.com/",
+          "evidence_text": "Design. Code. Publish. · Join the Freshdesk Developer Community and build tools to help thousands of businesses worldwide · Documentation · API · Partners."
+        },
+        {
+          "title": "Help Desk API for Developers | Freshdesk",
+          "url": "https://developer.freshdesk.com/api/v1",
+          "evidence_text": "This means, for authentication, you can use the same username and password you use when logging into your helpdesk. Or, you can use your personal API key ..."
+        },
+        {
+          "title": "Help Desk API for Developers | Freshdesk",
+          "url": "https://developer.freshdesk.com/api/v1/",
+          "evidence_text": "Your ability to access data depends on the permissions available for your Freshdesk profile. If your Freshdesk Agent Role is \"Newbie Agent\" who is not allowed to answer to tickets, but is only allowed to view them, then the APIs will restrict you from answering and you'll only be able to view the tickets."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": false,
+        "access_correct": true,
+        "api_surface_correct": true,
+        "mcp_correct": true,
+        "buildability_correct": true,
+        "overall_result": "FAIL",
+        "corrected_fields": [],
+        "corrected_values": {
+          "auth_methods": [
+            "Basic Auth",
+            "API Key"
+          ]
+        },
+        "verified_source_urls": [
+          "https://developers.freshdesk.com/",
+          "https://developer.freshdesk.com/api/v1",
+          "https://developer.freshdesk.com/api/v1/"
+        ],
+        "notes": "The cited Freshdesk documentation supports username/password and personal API key authentication; OAuth was not supported by the cited evidence."
+      }
+    },
+    {
+      "verification_id": "V05",
+      "app": "Grain",
+      "category": "AI, Research & Media-native",
+      "priority": "HIGH",
+      "risk_score": 17,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "limited_evidence_1_sources",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Grain provides tools for AI and media-native applications, enabling developers to integrate with its platform for research and media-related functionalities.",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access is self-serve or gated. While the API is available, there is no explicit mention of self-serve access or enterprise restrictions.",
+        "api_surface": "Available",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Grain API",
+          "url": "https://developers.grain.com/",
+          "evidence_text": "This authentication method is for developers building integrations with Grain to be used by any Grain users. Requests authenticated with these tokens are ..."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": false,
+        "access_correct": true,
+        "api_surface_correct": true,
+        "mcp_correct": false,
+        "buildability_correct": false,
+        "overall_result": "FAIL",
+        "corrected_fields": [],
+        "corrected_values": {
+          "auth_methods": [
+            "Personal Access Token",
+            "Workspace Access Token",
+            "OAuth 2.0"
+          ],
+          "mcp_status": "Official",
+          "buildability": "Partially buildable"
+        },
+        "verified_source_urls": [
+          "https://developers.grain.com/"
+        ],
+        "notes": "Grain documentation supports PAT/workspace token/OAuth2 flows and an official MCP server."
+      }
+    },
+    {
+      "verification_id": "V06",
+      "app": "Paygent Connect",
+      "category": "Finance & Fintech",
+      "priority": "HIGH",
+      "risk_score": 17,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "limited_evidence_2_sources",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Paygent Connect is a payment gateway offering API-based payment solutions, with features such as global payouts, AI fraud prevention, and B2B infrastructure.",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "No explicit information about access barriers or self-serve availability.",
+        "api_surface": "Available via API with SDK access.",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No explicit blocker identified.",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Paygent | The Premier Stripe & PayPal Alternative for API Payments",
+          "url": "https://gopaygent.com/products/connect",
+          "evidence_text": "Looking for a Stripe alternative? Paygent is the modern API payment gateway for enterprise platforms. Outperform PayPal with global payouts, AI fraud prevention, and true B2B infrastructure."
+        },
+        {
+          "title": "Pricing — Paygent | Free, Starter, Pro & Scale Plans",
+          "url": "https://www.paygent.to/pricing",
+          "evidence_text": "Paygent pricing starts free with 5 users and 5,000 events/month. Scale to unlimited users with the Scale plan. All plans include the dashboard, webhooks, and full SDK access."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": false,
+        "access_correct": true,
+        "api_surface_correct": true,
+        "mcp_correct": true,
+        "buildability_correct": true,
+        "overall_result": "FAIL",
+        "corrected_fields": [],
+        "corrected_values": {
+          "auth_methods": [
+            "Unknown"
+          ]
+        },
+        "verified_source_urls": [
+          "https://gopaygent.com/products/connect",
+          "https://www.paygent.to/pricing"
+        ],
+        "notes": "The supplied evidence did not establish OAuth authentication."
+      }
+    },
+    {
+      "verification_id": "V07",
+      "app": "Twenty",
+      "category": "CRM & Sales",
+      "priority": "HIGH",
+      "risk_score": 17,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "limited_evidence_2_sources",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Twenty provides a CRM platform for managing customer relationships, including people, companies, opportunities, and custom objects.",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The documentation mentions API access but does not specify whether it is self-serve or gated.",
+        "api_surface": "REST, GraphQL, Metadata API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "APIs - Twenty Documentation",
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "evidence_text": "Core API — /rest/ and /graphql/ CRUD on records: People, Companies, Opportunities, your custom objects. Query, filter, traverse relations. Metadata API — /rest/metadata/ and /metadata/ Schema management: create/modify/delete objects, fields, and relations. This is how you programmatically change your data model."
+        },
+        {
+          "title": "Developers - Twenty Documentation",
+          "url": "https://docs.twenty.com/developers/introduction",
+          "evidence_text": "Build apps, use the API, self-host, or contribute to the codebase."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": false,
+        "access_correct": false,
+        "api_surface_correct": true,
+        "mcp_correct": true,
+        "buildability_correct": false,
+        "overall_result": "FAIL",
+        "corrected_fields": [],
+        "corrected_values": {
+          "auth_methods": [
+            "API Key",
+            "OAuth 2.0"
+          ],
+          "access_model": "Self-serve",
+          "buildability": "Buildable today"
+        },
+        "verified_source_urls": [
+          "https://docs.twenty.com/developers/extend/api",
+          "https://docs.twenty.com/developers/introduction"
+        ],
+        "notes": "Twenty documentation supports API keys and OAuth 2.0 and explicitly presents the developer platform/API as usable directly."
+      }
+    },
+    {
+      "verification_id": "V08",
+      "app": "fanbasis",
+      "category": "Ecommerce",
+      "priority": "HIGH",
+      "risk_score": 16,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "multiple_auth_methods",
+        "unusual_auth_Username / Password",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "FanBasis is an e-commerce platform that allows users to sell courses, memberships, and digital products. It provides APIs for developers to integrate with its services.",
+        "auth_methods": [
+          "OAuth",
+          "Username / Password"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clearly indicate whether access is self-serve or gated. While there is mention of API access requiring a password, there is no explicit information about whether developers can access the API without going through a sales or approval process.",
+        "api_surface": "Available",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Unclear access model and lack of official MCP implementation details",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Login - FanBasis API Docsv3",
+          "url": "https://dev-docs.fanbasis.com/",
+          "evidence_text": "Sign in to access API Docs Password"
+        },
+        {
+          "title": "Fanbase.io API Plans",
+          "url": "https://www.plan.fanbase.io/",
+          "evidence_text": "Built using the Ethereum Virtual Machine, these APIs support ERC20 and ERC1155 swapping on 24 networks. You can choose between Fanbase 'Pure' APIs or Fanbase 'Aggregate' APIs depending on your needs. Fanbase 'Pure' APIs are faster because they only use Fanbase protocols, while Fanbase 'Aggregate' APIs compare prices across the decentralized web."
+        },
+        {
+          "title": "Commas API Reference",
+          "url": "https://commasdocs.com/",
+          "evidence_text": "Everything you need to collect payments, manage subscriptions, reward customers, and automate your business with Commas. Production URL. https://www.fanbasis."
+        },
+        {
+          "title": "Fanbasis Review: Sell Courses, Memberships & Digital Products in ...",
+          "url": "https://quasa.io/video/fanbasis-review-sell-courses-memberships-digital-products-in-one-place",
+          "evidence_text": "May 30, 2026 ... ... pricing is geared toward serious entrepreneurs; and while extremely ... OpenRouter: One API for Every AI Model — Smart Routing Done Right."
+        },
+        {
+          "title": "MCP Docs – Model Context Protocol （MCP）",
+          "url": "https://modelcontextprotocol.info/docs/",
+          "evidence_text": "Welcome to the Model Context Protocol documentation! MCP is a standardized protocol designed to enhance the interaction between Large Language Models (LLMs) and applications by providing structured context management."
+        },
+        {
+          "title": "Overview - Model Context Protocol",
+          "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic",
+          "evidence_text": "Jun 18, 2025 · The Model Context Protocol consists of several key components that work together: Base Protocol: Core JSON-RPC message types Lifecycle Management: Connection initialization, capability negotiation, and session control Authorization: Authentication and authorization framework for HTTP-based transports Server Features: Resources, prompts, and tools exposed by servers Client Features: Sampling ..."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": false,
+        "access_correct": true,
+        "api_surface_correct": false,
+        "mcp_correct": true,
+        "buildability_correct": true,
+        "overall_result": "FAIL",
+        "corrected_fields": [],
+        "corrected_values": {
+          "auth_methods": [
+            "Unknown"
+          ],
+          "api_surface": "Needs verification"
+        },
+        "verified_source_urls": [
+          "https://dev-docs.fanbasis.com/",
+          "https://www.plan.fanbase.io/",
+          "https://commasdocs.com/",
+          "https://quasa.io/video/fanbasis-review-sell-courses-memberships-digital-products-in-one-place",
+          "https://modelcontextprotocol.info/docs/",
+          "https://modelcontextprotocol.io/specification/2025-06-18/basic"
+        ],
+        "notes": "The cited material was insufficient to establish the agent's OAuth/username-password claim or a trustworthy general API surface."
+      }
+    },
+    {
+      "verification_id": "V09",
+      "app": "Notion",
+      "category": "Productivity & Project Management",
+      "priority": "HIGH",
+      "risk_score": 16,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "moderate_evidence",
+        "multiple_auth_methods",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Notion is a productivity and project management tool that allows users to create and manage notes, tasks, databases, and more.",
+        "auth_methods": [
+          "Token",
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access to the API is self-serve or gated. While internal connections and OAuth are mentioned, there is no explicit information about access barriers for developers.",
+        "api_surface": "Available",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Insufficient evidence to determine buildability or access model.",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Overview - Notion Docs",
+          "url": "https://developers.notion.com/guides/get-started/overview",
+          "evidence_text": "Notion supports three authentication models: Internal connections are scoped to a single workspace and use a static API token. They’re ideal for custom automations and workflows — things like syncing data, sending notifications, or building internal dashboards. Public connections use OAuth 2.0 for authentication."
+        },
+        {
+          "title": "Authentication - Notion Docs",
+          "url": "https://developers.notion.com/reference/authentication",
+          "evidence_text": "Requests use the HTTP Authorization header to both authenticate and authorize operations. The Notion API accepts bearer tokens in this header. Bearer tokens are provided when you create an internal connection, create a personal access token, or complete the OAuth flow for a public connection."
+        },
+        {
+          "title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
+          "url": "https://www.notion.com/pricing",
+          "evidence_text": "Trial AI capabilities like generating docs, or autofilling databases. Trial of Notion AI ; Capture, organize, and act on responses right inside Notion. Basic ..."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": true,
+        "access_correct": true,
+        "api_surface_correct": true,
+        "mcp_correct": false,
+        "buildability_correct": false,
+        "overall_result": "FAIL",
+        "corrected_fields": [],
+        "corrected_values": {
+          "mcp_status": "Official",
+          "buildability": "Buildable today"
+        },
+        "verified_source_urls": [
+          "https://developers.notion.com/guides/get-started/overview",
+          "https://developers.notion.com/reference/authentication",
+          "https://www.notion.com/pricing"
+        ],
+        "notes": "Notion documents internal-token and OAuth authentication, plus an official hosted MCP server."
+      }
+    },
+    {
+      "verification_id": "V10",
+      "app": "Mailchimp",
+      "category": "Marketing, Ads, Email & Social",
+      "priority": "HIGH",
+      "risk_score": 15,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "moderate_evidence",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Mailchimp provides programmatic access to its data and functionality through the Marketing API, allowing developers to build custom features for managing audiences, campaigns, and email activity.",
+        "auth_methods": [
+          "API Key"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access is self-serve or gated. While API keys can be generated by users with Manager permissions, there is no explicit mention of whether this is available to all users or requires additional approval.",
+        "api_surface": "Marketing API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Unclear access model and lack of explicit MCP implementation details",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Fundamentals Documentation | Mailchimp Developer",
+          "url": "https://mailchimp.com/developer/marketing/docs/fundamentals/",
+          "evidence_text": "Fundamentals The basics The Mailchimp Marketing API provides programmatic access to Mailchimp data and functionality, allowing developers to build custom features to do things like sync email activity and campaign analytics with their database, manage audiences and campaigns, and more. To use the Marketing API, you need a Mailchimp account."
+        },
+        {
+          "title": "About API Keys | Mailchimp",
+          "url": "https://mailchimp.com/help/about-api-keys/",
+          "evidence_text": "You'll often need to generate an API key when you set up an integration with your Mailchimp account. Users with Manager permissions can generate their own API ..."
+        },
+        {
+          "title": "Mailchimp Pricing Plans | Get Started Today",
+          "url": "https://mailchimp.com/pricing/marketing/",
+          "evidence_text": "Essentials, Standard, and Premium plans include user-based roles. Users. The maximum number of users that can access your Mailchimp account. Essentials, ..."
+        }
+      ],
+      "verification": {
+        "status": "VERIFIED",
+        "auth_correct": true,
+        "access_correct": false,
+        "api_surface_correct": true,
+        "mcp_correct": true,
+        "buildability_correct": false,
+        "overall_result": "FAIL",
+        "corrected_fields": [],
+        "corrected_values": {
+          "access_model": "Self-serve",
+          "buildability": "Buildable today"
+        },
+        "verified_source_urls": [
+          "https://mailchimp.com/developer/marketing/docs/fundamentals/",
+          "https://mailchimp.com/help/about-api-keys/",
+          "https://mailchimp.com/pricing/marketing/"
+        ],
+        "notes": "Mailchimp documentation supports self-generated API keys for account users and a public Marketing API."
+      }
+    }
+  ]
+}

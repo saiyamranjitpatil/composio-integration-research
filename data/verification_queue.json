@@ -1,0 +1,1264 @@
+{
+  "metadata": {
+    "source": "data/normalized_results.json",
+    "total_apps": 100,
+    "sample_size": 20,
+    "random_seed": 42,
+    "selection_method": "Category-stratified, risk-prioritized deterministic sampling.",
+    "status": "PENDING_HUMAN_VERIFICATION"
+  },
+  "instructions": [
+    "Open the cited evidence source.",
+    "Check each agent claim against the source rather than relying on plausibility.",
+    "Mark each field PASS or FAIL.",
+    "For incorrect fields, record the corrected value and source URL.",
+    "Use official documentation whenever available.",
+    "Do not mark a claim verified unless it is supported by the cited evidence."
+  ],
+  "records": [
+    {
+      "verification_id": "V01",
+      "app": "pylon",
+      "category": "support & helpdesk",
+      "priority": "HIGH",
+      "risk_score": 19,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "limited_evidence_2_sources",
+        "unusual_auth_Bearer authentication",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Pylon provides an API for programmatic access to data and automation, with support for MCP for AI tool integration.",
+        "auth_methods": [
+          "Bearer authentication"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "Evidence did not explicitly establish whether developer access is self-serve or gated.",
+        "api_surface": "Available for developers, but requires Admin access to create tokens.",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "API access is restricted to Admin users, which may require enterprise or paid-plan access.",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "API | Pylon",
+          "url": "https://docs.usepylon.com/pylon-docs/developer/api",
+          "evidence_text": "Pylon’s API can be used to programmatically access and take action on data within Pylon. Only Admin users can create API tokens. To learn more about Admins, see Roles & User Management. Some common use cases for our API include:"
+        },
+        {
+          "title": "Pylon Developer Hub",
+          "url": "https://getpylon.com/developers/",
+          "evidence_text": "Access the data in your Pylon team and automate business processes with our JSON-based web API. Instantly connect to 1000s of applications you already use with our Zapier App. Create projects from external systems without spending credits, and only pay when your team confirms the location."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V02",
+      "app": "Slack",
+      "category": "Communications & Messaging",
+      "priority": "HIGH",
+      "risk_score": 19,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "low_confidence",
+        "limited_evidence_2_sources",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Slack is a messaging platform for team communication and collaboration.",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access is self-serve or gated.",
+        "api_surface": "Slack API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Insufficient evidence to determine access model or MCP status.",
+        "confidence": "Low"
+      },
+      "evidence": [
+        {
+          "title": "Authentication overview | Slack Developer Docs",
+          "url": "https://docs.slack.dev/authentication/",
+          "evidence_text": "Before your app can access Slack data or interact with Slack workspaces, it must go through an authentication process. This involves obtaining the necessary tokens and permissions for your app to function properly."
+        },
+        {
+          "title": "Slack developer docs",
+          "url": "https://docs.slack.dev/",
+          "evidence_text": "Welcome to the Slack API docs, the place where ideas turn into interactive apps, workflows get automated, and Slack becomes the platform that powers your workday."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V03",
+      "app": "Aircall",
+      "category": "Communications & Messaging",
+      "priority": "HIGH",
+      "risk_score": 18,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "moderate_evidence",
+        "multiple_auth_methods",
+        "unusual_auth_Basic Auth",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Aircall provides cloud-based phone systems for businesses, enabling teams to manage calls, contacts, and customer interactions through a unified platform.",
+        "auth_methods": [
+          "OAuth",
+          "Basic Auth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access to the API requires enterprise restrictions, paid plans, or other access barriers.",
+        "api_surface": "REST API, Webhooks",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "API References | Aircall",
+          "url": "https://developers.aircall.io/api-references",
+          "evidence_text": "With Aircall Public API, Authentication can be done through OAuth or Basic Auth. ... authentication methods, unless indicated otherwise in the documentation."
+        },
+        {
+          "title": "Aircall for Developers",
+          "url": "https://developer.aircall.io/",
+          "evidence_text": "Use our REST API and webhooks to access calls, contacts, and users — and keep every system in sync with what's happening on every call, human or AI. See what ..."
+        },
+        {
+          "title": "Developers | Aircall",
+          "url": "https://developer.aircall.io/docs/api",
+          "evidence_text": "Seamlessly integrate with Aircall using our powerful APIs, and deliver the best phone experience to your team and your customers."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V04",
+      "app": "Freshdesk",
+      "category": "Support & Helpdesk",
+      "priority": "HIGH",
+      "risk_score": 18,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "moderate_evidence",
+        "multiple_auth_methods",
+        "unusual_auth_Username / Password",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Freshdesk is a customer support and helpdesk platform that allows businesses to manage customer interactions, tickets, and support workflows.",
+        "auth_methods": [
+          "OAuth",
+          "Username / Password",
+          "API Key"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not explicitly confirm whether access is self-serve or gated. While the API is available, there is no clear indication of whether it is open to all developers or restricted to certain users or plans.",
+        "api_surface": "REST API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Freshdesk Developers",
+          "url": "https://developers.freshdesk.com/",
+          "evidence_text": "Design. Code. Publish. · Join the Freshdesk Developer Community and build tools to help thousands of businesses worldwide · Documentation · API · Partners."
+        },
+        {
+          "title": "Help Desk API for Developers | Freshdesk",
+          "url": "https://developer.freshdesk.com/api/v1",
+          "evidence_text": "This means, for authentication, you can use the same username and password you use when logging into your helpdesk. Or, you can use your personal API key ..."
+        },
+        {
+          "title": "Help Desk API for Developers | Freshdesk",
+          "url": "https://developer.freshdesk.com/api/v1/",
+          "evidence_text": "Your ability to access data depends on the permissions available for your Freshdesk profile. If your Freshdesk Agent Role is \"Newbie Agent\" who is not allowed to answer to tickets, but is only allowed to view them, then the APIs will restrict you from answering and you'll only be able to view the tickets."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V05",
+      "app": "Grain",
+      "category": "AI, Research & Media-native",
+      "priority": "HIGH",
+      "risk_score": 17,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "limited_evidence_1_sources",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Grain provides tools for AI and media-native applications, enabling developers to integrate with its platform for research and media-related functionalities.",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access is self-serve or gated. While the API is available, there is no explicit mention of self-serve access or enterprise restrictions.",
+        "api_surface": "Available",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Grain API",
+          "url": "https://developers.grain.com/",
+          "evidence_text": "This authentication method is for developers building integrations with Grain to be used by any Grain users. Requests authenticated with these tokens are ..."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V06",
+      "app": "Paygent Connect",
+      "category": "Finance & Fintech",
+      "priority": "HIGH",
+      "risk_score": 17,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "limited_evidence_2_sources",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Paygent Connect is a payment gateway offering API-based payment solutions, with features such as global payouts, AI fraud prevention, and B2B infrastructure.",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "No explicit information about access barriers or self-serve availability.",
+        "api_surface": "Available via API with SDK access.",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No explicit blocker identified.",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Paygent | The Premier Stripe & PayPal Alternative for API Payments",
+          "url": "https://gopaygent.com/products/connect",
+          "evidence_text": "Looking for a Stripe alternative? Paygent is the modern API payment gateway for enterprise platforms. Outperform PayPal with global payouts, AI fraud prevention, and true B2B infrastructure."
+        },
+        {
+          "title": "Pricing — Paygent | Free, Starter, Pro & Scale Plans",
+          "url": "https://www.paygent.to/pricing",
+          "evidence_text": "Paygent pricing starts free with 5 users and 5,000 events/month. Scale to unlimited users with the Scale plan. All plans include the dashboard, webhooks, and full SDK access."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V07",
+      "app": "Twenty",
+      "category": "CRM & Sales",
+      "priority": "HIGH",
+      "risk_score": 17,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "limited_evidence_2_sources",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Twenty provides a CRM platform for managing customer relationships, including people, companies, opportunities, and custom objects.",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The documentation mentions API access but does not specify whether it is self-serve or gated.",
+        "api_surface": "REST, GraphQL, Metadata API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "APIs - Twenty Documentation",
+          "url": "https://docs.twenty.com/developers/extend/api",
+          "evidence_text": "Core API — /rest/ and /graphql/ CRUD on records: People, Companies, Opportunities, your custom objects. Query, filter, traverse relations. Metadata API — /rest/metadata/ and /metadata/ Schema management: create/modify/delete objects, fields, and relations. This is how you programmatically change your data model."
+        },
+        {
+          "title": "Developers - Twenty Documentation",
+          "url": "https://docs.twenty.com/developers/introduction",
+          "evidence_text": "Build apps, use the API, self-host, or contribute to the codebase."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V08",
+      "app": "fanbasis",
+      "category": "Ecommerce",
+      "priority": "HIGH",
+      "risk_score": 16,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "multiple_auth_methods",
+        "unusual_auth_Username / Password",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "FanBasis is an e-commerce platform that allows users to sell courses, memberships, and digital products. It provides APIs for developers to integrate with its services.",
+        "auth_methods": [
+          "OAuth",
+          "Username / Password"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clearly indicate whether access is self-serve or gated. While there is mention of API access requiring a password, there is no explicit information about whether developers can access the API without going through a sales or approval process.",
+        "api_surface": "Available",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Unclear access model and lack of official MCP implementation details",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Login - FanBasis API Docsv3",
+          "url": "https://dev-docs.fanbasis.com/",
+          "evidence_text": "Sign in to access API Docs Password"
+        },
+        {
+          "title": "Fanbase.io API Plans",
+          "url": "https://www.plan.fanbase.io/",
+          "evidence_text": "Built using the Ethereum Virtual Machine, these APIs support ERC20 and ERC1155 swapping on 24 networks. You can choose between Fanbase 'Pure' APIs or Fanbase 'Aggregate' APIs depending on your needs. Fanbase 'Pure' APIs are faster because they only use Fanbase protocols, while Fanbase 'Aggregate' APIs compare prices across the decentralized web."
+        },
+        {
+          "title": "Commas API Reference",
+          "url": "https://commasdocs.com/",
+          "evidence_text": "Everything you need to collect payments, manage subscriptions, reward customers, and automate your business with Commas. Production URL. https://www.fanbasis."
+        },
+        {
+          "title": "Fanbasis Review: Sell Courses, Memberships & Digital Products in ...",
+          "url": "https://quasa.io/video/fanbasis-review-sell-courses-memberships-digital-products-in-one-place",
+          "evidence_text": "May 30, 2026 ... ... pricing is geared toward serious entrepreneurs; and while extremely ... OpenRouter: One API for Every AI Model — Smart Routing Done Right."
+        },
+        {
+          "title": "MCP Docs – Model Context Protocol （MCP）",
+          "url": "https://modelcontextprotocol.info/docs/",
+          "evidence_text": "Welcome to the Model Context Protocol documentation! MCP is a standardized protocol designed to enhance the interaction between Large Language Models (LLMs) and applications by providing structured context management."
+        },
+        {
+          "title": "Overview - Model Context Protocol",
+          "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic",
+          "evidence_text": "Jun 18, 2025 · The Model Context Protocol consists of several key components that work together: Base Protocol: Core JSON-RPC message types Lifecycle Management: Connection initialization, capability negotiation, and session control Authorization: Authentication and authorization framework for HTTP-based transports Server Features: Resources, prompts, and tools exposed by servers Client Features: Sampling ..."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V09",
+      "app": "Notion",
+      "category": "Productivity & Project Management",
+      "priority": "HIGH",
+      "risk_score": 16,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "moderate_evidence",
+        "multiple_auth_methods",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Notion is a productivity and project management tool that allows users to create and manage notes, tasks, databases, and more.",
+        "auth_methods": [
+          "Token",
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access to the API is self-serve or gated. While internal connections and OAuth are mentioned, there is no explicit information about access barriers for developers.",
+        "api_surface": "Available",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Insufficient evidence to determine buildability or access model.",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Overview - Notion Docs",
+          "url": "https://developers.notion.com/guides/get-started/overview",
+          "evidence_text": "Notion supports three authentication models: Internal connections are scoped to a single workspace and use a static API token. They’re ideal for custom automations and workflows — things like syncing data, sending notifications, or building internal dashboards. Public connections use OAuth 2.0 for authentication."
+        },
+        {
+          "title": "Authentication - Notion Docs",
+          "url": "https://developers.notion.com/reference/authentication",
+          "evidence_text": "Requests use the HTTP Authorization header to both authenticate and authorize operations. The Notion API accepts bearer tokens in this header. Bearer tokens are provided when you create an internal connection, create a personal access token, or complete the OAuth flow for a public connection."
+        },
+        {
+          "title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
+          "url": "https://www.notion.com/pricing",
+          "evidence_text": "Trial AI capabilities like generating docs, or autofilling databases. Trial of Notion AI ; Capture, organize, and act on responses right inside Notion. Basic ..."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V10",
+      "app": "Mailchimp",
+      "category": "Marketing, Ads, Email & Social",
+      "priority": "HIGH",
+      "risk_score": 15,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "moderate_evidence",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Mailchimp provides programmatic access to its data and functionality through the Marketing API, allowing developers to build custom features for managing audiences, campaigns, and email activity.",
+        "auth_methods": [
+          "API Key"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access is self-serve or gated. While API keys can be generated by users with Manager permissions, there is no explicit mention of whether this is available to all users or requires additional approval.",
+        "api_surface": "Marketing API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Unclear access model and lack of explicit MCP implementation details",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Fundamentals Documentation | Mailchimp Developer",
+          "url": "https://mailchimp.com/developer/marketing/docs/fundamentals/",
+          "evidence_text": "Fundamentals The basics The Mailchimp Marketing API provides programmatic access to Mailchimp data and functionality, allowing developers to build custom features to do things like sync email activity and campaign analytics with their database, manage audiences and campaigns, and more. To use the Marketing API, you need a Mailchimp account."
+        },
+        {
+          "title": "About API Keys | Mailchimp",
+          "url": "https://mailchimp.com/help/about-api-keys/",
+          "evidence_text": "You'll often need to generate an API key when you set up an integration with your Mailchimp account. Users with Manager permissions can generate their own API ..."
+        },
+        {
+          "title": "Mailchimp Pricing Plans | Get Started Today",
+          "url": "https://mailchimp.com/pricing/marketing/",
+          "evidence_text": "Essentials, Standard, and Premium plans include user-based roles. Users. The maximum number of users that can access your Mailchimp account. Essentials, ..."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V11",
+      "app": "magento",
+      "category": "ecommerce",
+      "priority": "HIGH",
+      "risk_score": 14,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "multiple_auth_methods",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Magento (Adobe Commerce) provides a REST API for accessing and managing store data, with support for authentication and security features.",
+        "auth_methods": [
+          "OAuth",
+          "Token"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access is self-serve or gated. While APIs are available, there is no explicit mention of self-serve access or enterprise restrictions.",
+        "api_surface": "REST API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "REST API Overview - Adobe Developer",
+          "url": "https://developer.adobe.com/commerce/webapi/rest/",
+          "evidence_text": "Jun 2, 2026 ... Overview of the Adobe Commerce and Magento Open Source REST API documentation ... Adobe Commerce REST APIs support multiple authentication ..."
+        },
+        {
+          "title": "Authentication - Adobe Developer",
+          "url": "https://developer.adobe.com/commerce/webapi/get-started/authentication/",
+          "evidence_text": "Jun 2, 2026 ... Generate the IMS access token - User authentication guide. Adobe Commerce and Magento Open Source allow developers to define web API resources ..."
+        },
+        {
+          "title": "Restricting access to anonymous web APIs - Adobe Developer",
+          "url": "https://developer.adobe.com/commerce/webapi/rest/use-rest/anonymous-api-security",
+          "evidence_text": "Jun 2, 2026 ... When the feature is enabled, the user must have administrator privileges to execute the affected APIs. ... Magento Web API > Web API Security."
+        },
+        {
+          "title": "Services > Magento Web API | Adobe Commerce",
+          "url": "https://experienceleague.adobe.com/en/docs/commerce-admin/config/services/magento-web-api",
+          "evidence_text": "Jun 15, 2026 ... User; Admin; Developer. To access the store configuration settings, choose Stores > Settings > Configuration from the Admin sidebar. SOAP ..."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V12",
+      "app": "MongoDB Atlas",
+      "category": "Developer, Infra & Data Platforms",
+      "priority": "HIGH",
+      "risk_score": 14,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "multiple_auth_methods",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "MongoDB Atlas is a cloud service for deploying, managing, and scaling MongoDB databases.",
+        "auth_methods": [
+          "OAuth",
+          "API Key"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access to the API is self-serve or gated.",
+        "api_surface": "Administration API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Atlas Administration API Authentication Methods - MongoDB",
+          "url": "https://www.mongodb.com/docs/atlas/api/api-authentication/",
+          "evidence_text": "Learn how to authenticate Atlas Administration API requests using Service Accounts with OAuth 2.0 or API Keys with HTTP Digest Authentication to manage ..."
+        },
+        {
+          "title": "Atlas Administration API Reference - Atlas - MongoDB Docs",
+          "url": "https://www.mongodb.com/docs/atlas/api/atlas-admin-api-ref/",
+          "evidence_text": "The Atlas Administration API uses one of two methods to authenticate requests: service accounts or API keys. This ensures that the access tokens and keys that ..."
+        },
+        {
+          "title": "MongoDB Pricing",
+          "url": "https://www.mongodb.com/pricing",
+          "evidence_text": "Is there a free tier available for MongoDB Atlas? What does it include? How do I choose the right cluster tier for my application? What factors influence my ..."
+        },
+        {
+          "title": "Get Started with the Atlas Administration API - Atlas - MongoDB Docs",
+          "url": "https://www.mongodb.com/docs/atlas/configure-api-access/",
+          "evidence_text": "Add an API Access List Entry. · Click Add Access List Entry. · Enter an IP address or CIDR block from which you want Atlas to accept API requests for this service ..."
+        },
+        {
+          "title": "MongoDB MCP Server - GitHub",
+          "url": "https://github.com/mongodb-js/mongodb-mcp-server",
+          "evidence_text": "A Model Context Protocol server to connect to MongoDB databases and MongoDB Atlas Clusters. - mongodb-js/mongodb-mcp-server."
+        },
+        {
+          "title": "Announcing The MongoDB MCP Server",
+          "url": "https://www.mongodb.com/company/blog/announcing-mongodb-mcp-server",
+          "evidence_text": "May 1, 2025 ... Originally introduced by Anthropic, the Model Context Protocol has been gaining traction as an open standard for connecting AI agents and ..."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V13",
+      "app": "MrScraper",
+      "category": "Data, SEO & Scraping",
+      "priority": "HIGH",
+      "risk_score": 14,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "multiple_auth_methods",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "MrScraper is a scraping platform that enables developers to extract data from websites, with features such as error handling, structured context management, and integration capabilities.",
+        "auth_methods": [
+          "OAuth",
+          "API Key"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "No explicit mention of self-serve or gated access in the provided evidence.",
+        "api_surface": "Available via SDK (Node.js) and documentation",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Lack of explicit information on access model and MCP implementation",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "GitHub - mrscraper-com/sdk-node · GitHub",
+          "url": "https://github.com/mrscraper-com/sdk-node",
+          "evidence_text": "Contribute to mrscraper-com/sdk-node development by creating an account on GitHub."
+        },
+        {
+          "title": "sdk-node/README.md at main · mrscraper-com/sdk-node",
+          "url": "https://github.com/mrscraper-com/sdk-node/blob/main/README.md",
+          "evidence_text": "All functions throw a MrScraperError on failure — whether the error comes from the API (4xx/5xx), a network issue, or a timeout. You never need to check a return value; just wrap calls in try/catch."
+        },
+        {
+          "title": "Overview | MrScraper Documentation",
+          "url": "https://docs.mrscraper.com/docs/getting-started/overview",
+          "evidence_text": "Discover how our powerful scraping platform can transform the way you extract data. Whether you're scraping e-commerce product data, collecting job listings ..."
+        },
+        {
+          "title": "10 Best Web Scraping Companies for Developers & Startups",
+          "url": "https://www.joinmassive.com/blog/best-web-scraping-companies",
+          "evidence_text": "Jul 29, 2025 ... Transparent record-based pricing starts at $350 with costs determined by project complexity, data volume, and extraction frequency. Unlike ..."
+        },
+        {
+          "title": "MCP Docs – Model Context Protocol （MCP）",
+          "url": "https://modelcontextprotocol.info/docs/",
+          "evidence_text": "Getting started with Model Context Protocol (MCP) Welcome to the Model Context Protocol documentation! MCP is a standardized protocol designed to enhance the interaction between Large Language Models (LLMs) and applications by providing structured context management. Quick Start Quick Start - Get started with MCP in 5 minutes Client - Installation and usage guides for different language ..."
+        },
+        {
+          "title": "Overview - Model Context Protocol",
+          "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic",
+          "evidence_text": "Jun 18, 2025 · The Model Context Protocol consists of several key components that work together: Base Protocol: Core JSON-RPC message types Lifecycle Management: Connection initialization, capability negotiation, and session control Authorization: Authentication and authorization framework for HTTP-based transports Server Features: Resources, prompts, and tools exposed by servers Client Features: Sampling ..."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V14",
+      "app": "attio",
+      "category": "crm & sales",
+      "priority": "HIGH",
+      "risk_score": 13,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Attio is a CRM and sales platform that provides tools for managing customer relationships and sales processes.",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not explicitly confirm whether access is self-serve or gated. While there are mentions of access tokens and API usage, there is no clear indication of whether access is open or restricted.",
+        "api_surface": "REST API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Authenticating requests - Attio Docs",
+          "url": "https://docs.attio.com/rest-api/guides/authentication",
+          "evidence_text": "In order to make requests to the Attio REST API, you need to generate an access token. There are two ways to generate an access token:."
+        },
+        {
+          "title": "Developer Platform - Attio",
+          "url": "https://attio.com/platform/developers",
+          "evidence_text": "The Attio MCP gave us instant access to Attio's full data model without custom API work. Siavash Ghorbani / Stilla ..."
+        },
+        {
+          "title": "Plans & Pricing | Attio",
+          "url": "https://attio.com/pricing",
+          "evidence_text": "Access permissions · FreeNone · PlusBasic · ProAdvanced · EnterpriseAdvanced · Payment by invoice · Free · Plus · Pro · Enterprise · Protected recipients · Free · Plus · Pro · Enterprise · Limit CSV exports · Free · Plus · Pro · Enterprise ·"
+        },
+        {
+          "title": "Attio MCP - Attio Docs",
+          "url": "https://docs.attio.com/mcp/overview",
+          "evidence_text": "Connect your AI tools to Attio using the Model Context Protocol (MCP), an open standard that lets AI assistants interact with your Attio CRM workspace."
+        },
+        {
+          "title": "Attio Model Context Protocol (MCP) server implementation · GitHub",
+          "url": "https://github.com/kesslerio/attio-mcp-server",
+          "evidence_text": "This server enables AI assistants like Claude and ChatGPT to interact directly with your entire Attio workspace through natural language—manage Deals, Tasks, ..."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V15",
+      "app": "clay",
+      "category": "data, seo & scraping",
+      "priority": "HIGH",
+      "risk_score": 13,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "multiple_uncertainty_signals"
+      ],
+      "agent_claim": {
+        "description": "Clay provides tools for data integration, GTM (Growth, Traffic, and Monetization) data, and AI-powered automation through its platform and API.",
+        "auth_methods": [
+          "API Key"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access is self-serve or gated. While API keys are mentioned, there is no explicit indication of whether they are freely available or require approval.",
+        "api_surface": "Public API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "Unclear access model and lack of explicit MCP implementation details.",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Authentication - Clay docs",
+          "url": "https://developers.clay.com/public-api/authentication",
+          "evidence_text": "Authentication Authenticate requests with a Clay API key. Every request to the Clay Public API must include a Clay API key in the clay-api-key header. Store your key in an environment variable and pass it in the header: ... API keys are tied to a Clay user and workspace access. Create one under Settings → Account → API keys (beta)."
+        },
+        {
+          "title": "Overview - Clay docs",
+          "url": "https://developers.clay.com/",
+          "evidence_text": "Overview Use Clay from agents, terminals, backend services, internal tools, and custom apps. Clay used to live primarily in the Clay UI. Now Clay also works where your agents, developers, and business systems already are. Use the developer platform to search Clay’s GTM data, run reusable Clay logic, and read table data programmatically."
+        },
+        {
+          "title": "Compare plans, features & costs | Clay.com",
+          "url": "https://www.clay.com/pricing",
+          "evidence_text": "Start building in Clay for free. No strings attached. ... Claygent is Clay's AI agent with access to web research. You can generate any custom data points using ..."
+        },
+        {
+          "title": "Clay's new pricing changes what I build with. here's my updated stack.",
+          "url": "https://www.reddit.com/r/gtmengineering/comments/1rs14vv/clays_new_pricing_changes_what_i_build_with_heres/",
+          "evidence_text": "Mar 12, 2026 ... TL;DR: Clay killed the Explorer tier, moved HTTP API access to $495/mo, and started metering every API call as an Action."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V16",
+      "app": "coda",
+      "category": "productivity & project management",
+      "priority": "HIGH",
+      "risk_score": 10,
+      "selection_reasons": [
+        "buildability_needs_verification",
+        "unknown_mcp_status",
+        "medium_confidence",
+        "multiple_auth_methods",
+        "unusual_auth_JWT"
+      ],
+      "agent_claim": {
+        "description": "Coda is an all-in-one platform that blends the flexibility of docs, structure of spreadsheets, power of applications, and intelligence of AI.",
+        "auth_methods": [
+          "JWT",
+          "Signature"
+        ],
+        "access_model": "Gated",
+        "access_reason": "To access the API, users need a Coda publisher account, an API Key, and a Partner Id, indicating a requirement for account and credential setup, which implies a gated access model.",
+        "api_surface": "Direct Card API, Coda document sharing and permissions API",
+        "mcp_status": "Unknown",
+        "buildability": "Needs verification",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Authentication and authorization | Coda",
+          "url": "https://docs.coda.co/codapay/direct-api-integration/direct-api-integration-for-cards/getting-started/authentication-and-authorization",
+          "evidence_text": "The Direct Card API supports JWT and x-signature as the primary authentication mechanism. In order to make requests to our system, you will need to authenticate them."
+        },
+        {
+          "title": "Getting Started | Coda",
+          "url": "https://docs.coda.co/codapay/direct-api-integration/direct-api-integration-for-cards/getting-started",
+          "evidence_text": "Step 1: Get your Coda publisher account and credentials Before you start integrating, you will need a Coda publisher account, an API Key, and a Partner Id to be able to send authenticated requests in each environment (Sandbox and Production)."
+        },
+        {
+          "title": "coda-project/skills/coda-project-manage-permissions.md at ...",
+          "url": "https://github.com/api-evangelist/coda-project/blob/main/skills/coda-project-manage-permissions.md",
+          "evidence_text": "Manage document sharing and permissions Programmatically share a Coda doc and manage its access-control list. Requires a write token with access to the doc. Base URL: https://coda.io/apis/v1."
+        },
+        {
+          "title": "MCP Docs – Model Context Protocol （MCP）",
+          "url": "https://modelcontextprotocol.info/docs/",
+          "evidence_text": "Extensions - Official MCP extensions (MCP Apps, OAuth, etc.) ... Standardization: Unified interfaces and protocols to simplify development Efficiency: Optimized context management for enhanced model interactions Extensibility: Flexible architecture supporting custom extensions Ease of Use: Simple and intuitive APIs with low barrier to entry······"
+        },
+        {
+          "title": "Coda MCP - Model Context Protocol Integration",
+          "url": "https://next.chatbotkit.com/connections/coda.io/mcp",
+          "evidence_text": "What is Coda MCP? The Model Context Protocol (MCP) is an open standard that provides a unified way for AI applications to connect with external tools and data sources. Instead of building custom integrations for every service, MCP provides a standardized interface that allows AI models to discover available tools, understand their capabilities, and execute them safely and securely."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V17",
+      "app": "sentry",
+      "category": "developer, infra & data platforms",
+      "priority": "HIGH",
+      "risk_score": 10,
+      "selection_reasons": [
+        "unknown_access_model",
+        "unknown_mcp_status",
+        "limited_evidence_2_sources",
+        "multiple_auth_methods"
+      ],
+      "agent_claim": {
+        "description": "Sentry provides a platform for error tracking, performance monitoring, and security monitoring for applications. It offers APIs for managing resources, submitting events, and integrating with various services.",
+        "auth_methods": [
+          "OAuth",
+          "Token"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not explicitly confirm whether access is self-serve or gated. While the API exists and can be used, there is no clear indication of access barriers or requirements.",
+        "api_surface": "Public",
+        "mcp_status": "Unknown",
+        "buildability": "Buildable today",
+        "blocker": "No",
+        "confidence": "High"
+      },
+      "evidence": [
+        {
+          "title": "MCP (Model Context Protocol) | Sentry for Python",
+          "url": "https://docs.sentry.io/platforms/python/integrations/mcp/",
+          "evidence_text": "Learn about using the Sentry Python SDK for MCP (Model Context Protocol) servers."
+        },
+        {
+          "title": "Sentry MCP",
+          "url": "https://mcp.sentry.dev/",
+          "evidence_text": "A Model Context Protocol implementation for interacting with Sentry."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V18",
+      "app": "Salesforce",
+      "category": "CRM",
+      "priority": "HIGH",
+      "risk_score": 8,
+      "selection_reasons": [
+        "unknown_access_model",
+        "buildability_needs_verification",
+        "medium_confidence"
+      ],
+      "agent_claim": {
+        "description": "",
+        "auth_methods": [
+          "OAuth"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "No explicit information about self-serve or gated access is provided.",
+        "api_surface": "REST API, Connect REST API, Pricing Business APIs",
+        "mcp_status": "Official",
+        "buildability": "Needs verification",
+        "blocker": "",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Salesforce Developers",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm",
+          "evidence_text": "Salesforce Developer Website"
+        },
+        {
+          "title": "OAuth and Connect REST API | Connect REST API Developer Guide | Salesforce Developers",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.chatterapi.meta/chatterapi/intro_using_oauth.htm",
+          "evidence_text": "Connect REST API uses OAuth to securely identify your application before connecting to Salesforce."
+        },
+        {
+          "title": "Supported Editions and Required Permissions | REST API Developer Guide | Salesforce Developers",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest_compatible_editions.htm",
+          "evidence_text": "To access your Salesforce org and data using the Salesforce API, you need both an org and a user with API access enabled. There’s more than one Salesforce Edition that supports API access and multiple ways to grant API permission to a user."
+        },
+        {
+          "title": "Salesforce Pricing Business APIs | Revenue Management Developer Guide | Salesforce Developers",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.revenue_lifecycle_management_dev_guide.meta/revenue_lifecycle_management_dev_guide/pricing_business_apis.htm",
+          "evidence_text": "Perform pricing request, create context instance, sync pricing data, and manage pricing recipes and pricing waterfall details by using Salesforce Pricing Business APIs."
+        },
+        {
+          "title": "Introducing MCP Support Across Salesforce",
+          "url": "https://developer.salesforce.com/blogs/2025/06/introducing-mcp-support-across-salesforce",
+          "evidence_text": "Model Context Protocol is revolutionizing how AI applications connect with tools and data, and Salesforce is at the forefront of this transformation. Model Context Protocol (MCP) is an open-source protocol that makes it easier for AI apps and agents to connect with tools and data sources."
+        },
+        {
+          "title": "Model Context Protocol: What Is MCP for Generative AI?",
+          "url": "https://www.salesforce.com/agentforce/mcp-support/model-context-protocol/",
+          "evidence_text": "The Model Context Protocol is a foundational technology for the next generation of AI, particularly for the development of highly capable AI agents. It marks a shift from AI as a passive tool to AI as a proactive, autonomous assistant."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V19",
+      "app": "brightdata",
+      "category": "data,seo&scraping",
+      "priority": "MEDIUM",
+      "risk_score": 7,
+      "selection_reasons": [
+        "unknown_access_model",
+        "medium_confidence",
+        "multiple_auth_methods",
+        "unusual_auth_Username / Password"
+      ],
+      "agent_claim": {
+        "description": "Bright Data provides tools for web scraping, data collection, and automation, with APIs for integration into applications and workflows.",
+        "auth_methods": [
+          "API Key",
+          "Username / Password"
+        ],
+        "access_model": "Unknown",
+        "access_reason": "The evidence does not clarify whether access is self-serve or gated. While API tokens and account setup are mentioned, there is no explicit indication of self-serve access or enterprise restrictions.",
+        "api_surface": "Public API",
+        "mcp_status": "Community",
+        "buildability": "Buildable today",
+        "blocker": "No",
+        "confidence": "Medium"
+      },
+      "evidence": [
+        {
+          "title": "Bright Data Scraper Studio API quickstart",
+          "url": "https://docs.brightdata.com/datasets/scraper-studio/quickstart",
+          "evidence_text": "An active Bright Data account with a payment method on file · An API token from Account Settings → API Tokens · A Collector ID from a scraper you built with the ..."
+        },
+        {
+          "title": "Authentication - Bright Data Docs",
+          "url": "https://docs.brightdata.com/api-reference/authentication",
+          "evidence_text": "Authenticate with Bright Data using 1 of 2 methods: API Access with an API key or Native Access with proxy username and password. Billed at the same rate."
+        },
+        {
+          "title": "Web Scraper API Pricing Plans - Bright Data",
+          "url": "https://brightdata.com/pricing/web-scraper",
+          "evidence_text": "Web Scraper API pricing plans. Choose the right plan for you to easily scrape web data from the most popular websites."
+        },
+        {
+          "title": "GitHub - brightdata/brightdata-mcp: A powerful Model Context ...",
+          "url": "https://github.com/brightdata/brightdata-mcp",
+          "evidence_text": "Web search, page scraping, structured data extraction, and browser automation for AI agents and LLMs over the Model Context Protocol. Works with AI agents, coding agents, chat assistants, and any MCP-compatible client."
+        },
+        {
+          "title": "MCP Docs – Model Context Protocol （MCP）",
+          "url": "https://modelcontextprotocol.info/docs/",
+          "evidence_text": "Build an MCP Client (Core) - Minimal viable implementation with official examples ... MCP’s core features and concepts include: Sampling - Understanding MCP’s sampling mechanisms and strategies Transport - Data transport and communication protocols Tools - MCP toolset and usage guidelines Architecture - System architecture and design principles"
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    },
+    {
+      "verification_id": "V20",
+      "app": "fathom",
+      "category": "ai, research & media-native",
+      "priority": "STANDARD",
+      "risk_score": 1,
+      "selection_reasons": [
+        "multiple_auth_methods"
+      ],
+      "agent_claim": {
+        "description": "Fathom provides meeting insights and integration capabilities through an API, allowing developers to access meeting data, build workflows, and connect with AI assistants via MCP.",
+        "auth_methods": [
+          "OAuth",
+          "API Key"
+        ],
+        "access_model": "Self-serve",
+        "access_reason": "API access starts immediately on any Fathom plan, including the free tier. There is no developer approval process or separate API subscription.",
+        "api_surface": "Public API with endpoints for meeting data, webhooks, and SDKs for Typescript and Python",
+        "mcp_status": "Official",
+        "buildability": "Buildable today",
+        "blocker": "",
+        "confidence": "High"
+      },
+      "evidence": [
+        {
+          "title": "Introduction - Fathom API",
+          "url": "https://developers.fathom.ai/",
+          "evidence_text": "Generate an API key and make your first call in minutes. See all available endpoints and methods. Set up a webhook for your meetings. Use our Typescript or Python SDK. Build a Fathom integration that other users can install. Need inspiration? See what others have built with Fathom’s API."
+        },
+        {
+          "title": "Authentication - Fathom API",
+          "url": "https://developers.fathom.ai/sdks/authentication",
+          "evidence_text": "Security Schemes ... Security Best Practices Use environment variables for credentials Use OAuth for multi-user integrations Rotate API keys regularly Monitor API usage"
+        },
+        {
+          "title": "Fathom API Review: Endpoints, SDKs & Rate Limits [Aug 2026]",
+          "url": "https://pipeline.zoominfo.com/sales/fathom-api-review",
+          "evidence_text": "Aug 9, 2026 ... API access starts immediately on any Fathom plan, including the free tier. There is no developer approval process, no separate API subscription, ..."
+        },
+        {
+          "title": "Public API - Fathom Help Center",
+          "url": "https://help.fathom.video/en/articles/8368641",
+          "evidence_text": "Nov 12, 2025 ... Fathom now has a public API that gives you developer‑friendly access to meeting insights so you can build workflows and integrations that ..."
+        },
+        {
+          "title": "Overview - Fathom API",
+          "url": "https://developers.fathom.ai/mcp-docs",
+          "evidence_text": "Fathom now offers an official MCP (Model Context Protocol) server, allowing you to connect your Fathom meeting data to AI assistants like ChatGPT, Claude, and more."
+        },
+        {
+          "title": "GitHub - Dot-Fun/fathom-mcp: Model Context Protocol server ...",
+          "url": "https://github.com/Dot-Fun/fathom-mcp",
+          "evidence_text": "Oct 12, 2025 · A Model Context Protocol (MCP) server for interacting with the Fathom AI API. This server provides tools for accessing meeting recordings, summaries, transcripts, teams, and webhooks."
+        }
+      ],
+      "verification": {
+        "status": "PENDING",
+        "auth_correct": null,
+        "access_correct": null,
+        "api_surface_correct": null,
+        "mcp_correct": null,
+        "buildability_correct": null,
+        "overall_result": null,
+        "corrected_fields": [],
+        "corrected_values": {},
+        "verified_source_urls": [],
+        "notes": ""
+      }
+    }
+  ]
+}
